@@ -10,4 +10,10 @@ describe SecretDiary do
     secret_diary.unlock
     expect { secret_diary.add_entry }.not_to raise_error
   end
+  it "raises an error when user calls lock" do
+    secret_diary = SecretDiary.new
+    secret_diary.unlock
+    secret_diary.lock
+    expect { secret_diary.add_entry }.to raise_error 'SecretDiary is locked!'
+  end
 end
