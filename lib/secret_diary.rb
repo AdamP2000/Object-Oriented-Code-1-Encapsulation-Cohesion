@@ -13,6 +13,11 @@ class SecretDiary
     "Coming back to how to add entries later"
   end
 
+  def get_entries
+    fail 'SecretDiary is locked!' if @locked == true
+    "Coming back to how to add entries later"
+  end
+
   def unlock
     @locked = false
   end
