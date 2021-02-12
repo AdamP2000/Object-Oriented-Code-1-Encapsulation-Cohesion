@@ -4,10 +4,6 @@ class SecretDiary
     @locked = true
   end
 
-
-
-
-
   def add_entry
     fail 'SecretDiary is locked!' if @locked == true
     "Coming back to how to add entries later"
@@ -26,10 +22,5 @@ class SecretDiary
   def lock
     @locked = true
   end
-
-
-
-
-
 
 end
