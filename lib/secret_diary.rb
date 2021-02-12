@@ -24,3 +24,7 @@ class SecretDiary
   end
 
 end
+
+"#{title}, #{body}"
+"March 1st, Ate Bread"
+["March 1st, Ate Bread", ""]

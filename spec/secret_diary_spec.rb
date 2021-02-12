@@ -9,7 +9,7 @@ describe SecretDiary do
     it "locks the diary by default" do
       expect { @secret_diary.add_entry }.to raise_error 'SecretDiary is locked!'
     end
-    it "let's you add an entry if you unlock it" do
+    it "won't raise an error if diary is unlocked" do
       @secret_diary.unlock
       expect { @secret_diary.add_entry }.not_to raise_error
     end
@@ -18,12 +18,16 @@ describe SecretDiary do
       @secret_diary.lock
       expect { @secret_diary.add_entry }.to raise_error 'SecretDiary is locked!'
     end
+		it 'adds a new entry with a title and body when unlocked' do
+			@secret_diary.unlock
+			expect(secret_diary.add_entry("March 1st", "Ate Bread"))
+		end
   end
   describe '#get_entries' do
     it "locks the diary by default" do
       expect { @secret_diary.get_entries }.to raise_error 'SecretDiary is locked!'
     end
-    it "let's you add an entry if you unlock it" do
+    it "won't raise an error if diary is unlocked" do
       @secret_diary.unlock
       expect { @secret_diary.get_entries }.not_to raise_error
     end
