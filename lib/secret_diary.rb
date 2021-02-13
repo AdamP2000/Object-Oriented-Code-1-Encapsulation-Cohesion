@@ -1,17 +1,25 @@
+require_relative 'entry'
+
+
 class SecretDiary
+
+  attr_reader :entries
 
   def initialize
     @locked = true
+    @entries = []
   end
 
-  def add_entry
+  def add_entry(entry)
     fail 'SecretDiary is locked!' if @locked == true
-    "Coming back to how to add entries later"
+    @entries << entry
   end
 
   def get_entries
     fail 'SecretDiary is locked!' if @locked == true
-    "Coming back to how to add entries later"
+    for entry in @entries
+      puts "#{entry.title}: #{entry.body}"
+    end
   end
 
   def unlock
@@ -24,7 +32,3 @@ class SecretDiary
   end
 
 end
-
-"#{title}, #{body}"
-"March 1st, Ate Bread"
-["March 1st, Ate Bread", ""]
